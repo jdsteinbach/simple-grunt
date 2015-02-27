@@ -16,7 +16,7 @@ That's all for now. I'll be adding more tasks as I have need.
 
 ## Road Map
 
-* Add `build` task
-* Add image optimization
-* Add JS uglify/concatenate
-* Add [Susy](http://susy.readthedocs.org/en/latest/install/#grunt-and-yeoman) support by default
+- [ ] Add `build` task
+- [ ] Add image optimization
+- [ ] Add JS uglify/concatenate
+- [ ] Add [Susy](http://susy.readthedocs.org/en/latest/install/#grunt-and-yeoman) support by default
