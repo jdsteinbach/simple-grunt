@@ -1,0 +1,10 @@
+body {
+  padding: 1em;
+  font-size: 20px;
+  background-color: #eee;
+  color: #333;
+
+  @media (min-width: 800px) {
+    padding: 1em calc(#{50vw} - #{400px});
+  }
+}

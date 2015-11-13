@@ -2,8 +2,8 @@
 
 module.exports = function(grunt) {
   grunt.initConfig({
-    pkg: grunt.file.readJSON('package.json'), 
-    
+    pkg: grunt.file.readJSON('package.json'),
+
     sass: {
       options: {
         sourceMap: true,
@@ -16,7 +16,7 @@ module.exports = function(grunt) {
             cwd: "sass", // The startup directory
             src: ["**/*.scss"], // Source files
             dest: "css", // Destination
-            ext: ".css" // File extension 
+            ext: ".css" // File extension
           }
         ]
       }
@@ -25,7 +25,7 @@ module.exports = function(grunt) {
     autoprefixer: {
       options: {
         browsers: [
-			'last 3 versions'
+      'last 3 versions'
         ],
         map: true // Update source map (creates one if it can't find an existing map)
       },
@@ -36,17 +36,17 @@ module.exports = function(grunt) {
             cwd: "css", // The startup directory
             src: ["**/*.css"], // Source files
             dest: "css", // Destination
-            ext: ".css" // File extension 
+            ext: ".css" // File extension
           }
         ]
       }
     },
 
-   watch: { 
+    watch: {
       gruntfile: {
         files: ['Gruntfile.js']
       },
-	  scss: {
+      scss: {
         files: '**/*.scss',
         tasks: ['sass', 'autoprefixer']
       },
@@ -64,31 +64,22 @@ module.exports = function(grunt) {
         ]
       },
     },
-    
     connect: {
       options: {
         port: 9000,
         open: true,
         livereload: 35729,
-        // Change this to '0.0.0.0' to access the server from outside
         hostname: 'localhost'
       },
       livereload: {
        options: {
-	       open: true
-//          middleware: function(connect) {
-//             return [
-//               connect.static('.tmp'),
-//               connect().use('/bower_components', connect.static('./bower_components')),
-//               connect.static(config.app)
-//             ];
-//           }
+         open: true
         }
       },
       dist: {
-	      options: {
-		      base: '~/<%= pkg.name %>'
-	      }
+        options: {
+          base: '~/<%= pkg.name %>'
+        }
       }
     }
   });
@@ -98,16 +89,13 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-autoprefixer');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-watch');
-//   grunt.loadNpmTasks('grunt-serve');
 
   grunt.registerTask('serve', function (target) {
- 
     grunt.task.run([
       'connect:livereload',
       'watch'
     ]);
   });
-  
-  grunt.registerTask('default', ['serve']); // This registers the watch task as the default task. If you require more tasks, create another one
 
+  grunt.registerTask('default', ['serve']);
 };
