@@ -1,0 +1,31 @@
+@-moz-document url-prefix() {
+  body li:nth-last-child(2):first-child,
+  body li:nth-last-child(2):first-child ~ li {
+    color: orange;
+  }
+}
+
+body p {
+  color: #03a;
+}
+
+body li {
+  list-style: none;
+  display: inline-block;
+}
+
+body li:nth-last-child(2):first-child,
+body li:nth-last-child(2):first-child ~ li {
+  display: block;
+}
+
+.element {
+  color: red;
+}
+
+@-moz-document url-prefix() {
+  .element {
+    color: blue;
+  }
+}
+/*# sourceMappingURL=test.css.map */

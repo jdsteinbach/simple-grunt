@@ -1,0 +1,29 @@
+@-moz-document url-prefix() {
+  %ff-fix {
+    color: orange;
+  }
+}
+
+
+body {
+  p {
+    color: #03a;
+  }
+  li {
+    list-style: none;
+    display: inline-block;
+    &:nth-last-child(2):first-child,
+    &:nth-last-child(2):first-child ~ li {
+      display: block;
+      @extend %ff-fix;
+    }
+  }
+}
+
+.element {
+  color: red;
+  @-moz-document url-prefix() {
+    // some FF-specific fixes
+    color: blue;
+  }
+}

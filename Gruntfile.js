@@ -2,8 +2,8 @@
 
 module.exports = function(grunt) {
   grunt.initConfig({
-    pkg: grunt.file.readJSON('package.json'), 
-    
+    pkg: grunt.file.readJSON('package.json'),
+
     sass: {
       options: {
         sourceMap: true,
@@ -16,7 +16,7 @@ module.exports = function(grunt) {
             cwd: "sass", // The startup directory
             src: ["**/*.scss"], // Source files
             dest: "css", // Destination
-            ext: ".css" // File extension 
+            ext: ".css" // File extension
           }
         ]
       }
@@ -25,7 +25,7 @@ module.exports = function(grunt) {
     autoprefixer: {
       options: {
         browsers: [
-			'last 3 versions'
+      'last 3 versions'
         ],
         map: true // Update source map (creates one if it can't find an existing map)
       },
@@ -36,59 +36,59 @@ module.exports = function(grunt) {
             cwd: "css", // The startup directory
             src: ["**/*.css"], // Source files
             dest: "css", // Destination
-            ext: ".css" // File extension 
+            ext: ".css" // File extension
           }
         ]
       }
     },
 
-   watch: { 
-      gruntfile: {
-        files: ['Gruntfile.js']
-      },
-	  scss: {
-        files: '**/*.scss',
-        tasks: ['sass', 'autoprefixer']
-      },
-      livereload: {
-        options: {
-          livereload: '<%= connect.options.livereload %>'
-        },
-        files: [
-          '{,*/}*.html',
-          '{,*/}*.php',
-          'js/{,*/}*.js',
-          'css/{,*/}*.css',
-          'sass/{,*/}*.scss',
-          'images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
-        ]
-      },
+   watch: {
+    gruntfile: {
+      files: ['Gruntfile.js']
     },
-    
-    connect: {
+    scss: {
+      files: '**/*.scss',
+      tasks: ['sass', 'autoprefixer']
+    },
+    livereload: {
       options: {
-        port: 9000,
-        open: true,
-        livereload: 35729,
-        // Change this to '0.0.0.0' to access the server from outside
-        hostname: 'localhost'
+        livereload: '<%= connect.options.livereload %>'
       },
-      livereload: {
-       options: {
-	       open: true
-//          middleware: function(connect) {
-//             return [
-//               connect.static('.tmp'),
-//               connect().use('/bower_components', connect.static('./bower_components')),
-//               connect.static(config.app)
-//             ];
-//           }
+      files: [
+        '{,*/}*.html',
+        '{,*/}*.php',
+        'js/{,*/}*.js',
+        'css/{,*/}*.css',
+        'sass/{,*/}*.scss',
+        'images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
+      ]
+    },
+  },
+
+  connect: {
+    options: {
+      port: 9090,
+      open: true,
+      livereload: 35729,
+      // Change this to '0.0.0.0' to access the server from outside
+      hostname: 'localhost'
+    },
+    livereload: {
+      options: {
+        open: true
+        //  middleware: function(connect) {
+        //    return [
+        //      connect.static('.tmp'),
+        //      connect().use('/bower_components', connect.static('./bower_components')),
+        //      connect.static(config.app)
+        //    ];
+        //  }
         }
       },
       dist: {
-	      options: {
-		      base: '~/<%= pkg.name %>'
-	      }
+        options: {
+          base: '~/<%= pkg.name %>'
+        }
       }
     }
   });
@@ -101,13 +101,13 @@ module.exports = function(grunt) {
 //   grunt.loadNpmTasks('grunt-serve');
 
   grunt.registerTask('serve', function (target) {
- 
+
     grunt.task.run([
       'connect:livereload',
       'watch'
     ]);
   });
-  
+
   grunt.registerTask('default', ['serve']); // This registers the watch task as the default task. If you require more tasks, create another one
 
 };
