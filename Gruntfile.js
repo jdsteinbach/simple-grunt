@@ -42,6 +42,7 @@ module.exports = function(grunt) {
       }
     },
 
+<<<<<<< HEAD
    watch: {
     gruntfile: {
       files: ['Gruntfile.js']
@@ -83,6 +84,40 @@ module.exports = function(grunt) {
         //      connect.static(config.app)
         //    ];
         //  }
+=======
+    watch: {
+      gruntfile: {
+        files: ['Gruntfile.js']
+      },
+      scss: {
+        files: '**/*.scss',
+        tasks: ['sass', 'autoprefixer']
+      },
+      livereload: {
+        options: {
+          livereload: '<%= connect.options.livereload %>'
+        },
+        files: [
+          '{,*/}*.html',
+          '{,*/}*.php',
+          'js/{,*/}*.js',
+          'css/{,*/}*.css',
+          'sass/{,*/}*.scss',
+          'images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
+        ]
+      },
+    },
+    connect: {
+      options: {
+        port: 9000,
+        open: true,
+        livereload: 35729,
+        hostname: 'localhost'
+      },
+      livereload: {
+       options: {
+         open: true
+>>>>>>> 64676a2b993575f3155eabf55e58ad1636a06a7c
         }
       },
       dist: {
@@ -98,16 +133,22 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-autoprefixer');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-watch');
-//   grunt.loadNpmTasks('grunt-serve');
 
   grunt.registerTask('serve', function (target) {
+<<<<<<< HEAD
 
+=======
+>>>>>>> 64676a2b993575f3155eabf55e58ad1636a06a7c
     grunt.task.run([
       'connect:livereload',
       'watch'
     ]);
   });
+<<<<<<< HEAD
 
   grunt.registerTask('default', ['serve']); // This registers the watch task as the default task. If you require more tasks, create another one
+=======
+>>>>>>> 64676a2b993575f3155eabf55e58ad1636a06a7c
 
+  grunt.registerTask('default', ['serve']);
 };
